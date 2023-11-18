@@ -42,4 +42,17 @@ Finally, we read several papers on Neural Operators to begin to understand how w
 
 ### Plan for Completion
 
+The next steps for our project are severalfold, however they are largely defined by 2 paths that will be worked on in parallel, by 2 members each.
+
+1. Complete analysis of multiple-basis representation
+   * Create PINN with Fourier transform layer and compare performance
+   * Create PINN with Laplace transform layer and compare performance
+   * Create PINN with z-transform layer and compare performance
+   * Recommend best basis for representing point samples for our PINN
+
+2. Investigate and create Neural Operator model to compare performance
+   * Implement neural operator model and test viability on several PDE families
+   * Compare performance to above PINN models
+   * Discuss costs and benefits regarding trainig time, accuracy, stability, and generalizability
+
 ### Reflections on Learning
