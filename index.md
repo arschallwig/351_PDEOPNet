@@ -14,3 +14,4 @@ PINNs are a cutting-edge class of machine learning models that unite the data-dr
 PDEOpNet is a PINN implemented to solve several important families of PDEs. In doing so, we explore questions regarding variable basis representation, system property analysis, and data processing. For more on our project, please visit the links below:
 
 [1. Project Progress Report](./project_progress_report.md)
+[2. References](./references.md)
