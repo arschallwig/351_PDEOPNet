@@ -56,3 +56,4 @@ The next steps for our project are severalfold, however they are largely defined
    * Discuss costs and benefits regarding trainig time, accuracy, stability, and generalizability
 
 ### Reflections on Learning
+We have learned countless new theories and skills while working on this project. Among the most interesting to us, have been the continued connections we have found between Machine Learning, Digital Signal Processing, and Differential Equations
