@@ -7,6 +7,19 @@ layout: default
 This page is the Project Progress Report for 17 November 2023. This page will discuss the state of the project as of that date. We will begin by describing the data used for our project and how it was attained. We will then present three plots of our data to help visualize key aspects of our progress. We will describe more generally what work we have done so far, and create a plan for the next weeks until the project due date. Finally, we will provide a brief reflection on what we have learned so far.  
 
 ### Data
+As our model is solving differential equations, our data are samples of the systems defined by the differential equation. For our first PINN model, we are specifically attempting to model the heat equation, thus our data can be thought of as the initial and final states of a thermodynamic system. In our case, we are specifically training on a 2-dimensional model of heat transfer. Thus, for $N$ samples in space we have $d=3$ dimensions representing the $xy$ location and initial temperature, $T$ of the point sample. Thus, our input data, $D_{in}$ can be viewed as a second-degree tensor:
+
+$$D_{in} = \begin{bmatrix} x_0 & y_0 & T_0 \\
+                        x_1 & y_1 & T_1 \\
+                        ... & ... & ... \\
+                        x_N & y_N & T_N \end{bmatrix}$$
+
+As we are attemping to solve the heat equation, our labels, or the targets for our prediction, is simply the end thermodynamic state of each point sample. This will take a similar shape as $D_{in}$ as we need $d=3$ dimensions to represent $xy$ location and final temperature. Thus, our labels $D_{l}$ are similarly a a second-degree tensor:
+
+$$D_{l} = \begin{bmatrix} x_0 & y_0 & T_0 \\
+                        x_1 & y_1 & T_1 \\
+                        ... & ... & ... \\
+                        x_N & y_N & T_N \end{bmatrix}$$
 
 ### Visualizations
 
