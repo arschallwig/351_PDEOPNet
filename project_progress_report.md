@@ -24,7 +24,19 @@ For further information regarding how this data was generated, please refer to *
 ![Heat PINN Output](/assets/imgs/PINN_out.png)
 ![Hemholtz PINN Output](/assets/imgs/hemholtz_out.png)
 
+These figures depict three key states of data in our project. The first figure depicts the input data to our model, a set of random point samples in a 2-dimensional space where heat is applied by a plate at $$y=-1$$. In this initial state, the points in space start with no heat, and only the boundary points along $$y=-1$$ are heated. We generated this by randomly sampling an evenly-distributed set of points in $$xy$$ space, and enforcing initial heat along the bottom points.
 
+The next two figures depict the final state of our thermodynamic system under varied differential loss regularizations. The first figure depicts the final state of the thermodynamic system when our PINN is regularized to model the standard heat equation:
+
+$$\frac{\partial u}{\partial t} = \Delta u$$
+
+As shown in the figure, heat, depicted as brighter pixels, radiates evenly in space. The heat decreases radially from the heated plate. 
+
+The second figure depicts the final state of the thermodynamic system when our PINN is regularized to model the Helmholtz equation. The Helmholtz equation is only different in one term from the standard heat equation, and captures the eigenvalue problem for the Laplace operator:
+
+$$\nabla^2 f = -k^2 f$$
+
+Interestingly, introducing this regularization causes the heat to radiate more consistently along the edges. The heat depicts a similar diffusion around the space of the hot plate, but the edges and corners of the space boundry show higher heat.
 
 ### Work Completed
 Prior to this week, our team spent a majority of our time reading the current literature surrounding PDEs, PINNs, and neural operators. Due to the largely conceptual nature of this field, we had to consult countless resources including published literature, articles, recorded lectures, and more to fully understand the space. We found that, in many ways, this is still a very cutting-edge disclipline, with several milestone pieces having been published in recent months. As such, this rapidly-developing field necessarily lends itself to new ideas and creativity in ways that more established fields of study may not.   
@@ -41,7 +53,7 @@ To create training data, we simply sampled many points in the unit square, and i
 
 We then began defining our first PINN model using Keras. This model is a Multi-Layer Perceptron (MLP), meaning that the network is fully-connected. We found that this architecture worked well to capture the dynamics of the heat equation, and was consistent with the fact that a closed-form solution exists.
 
-Next, we tried to see how extendable our initial heat-equation implementation was to other types of equations. We turned to the Hemholtz equation $$(\Delta + k^2)f = 0$$, a one-term deviation from the heat equation as the next PDE. Unsurprisingly, all it  took was to update the PDE regularization term during network training. It's clear that the Hemholtz solution has more wave-like periodic properties in our visualization, which matches the applications of the equation generally.
+Next, we tried to see how extendable our initial heat-equation implementation was to other types of equations. We turned to the Helmholtz equation $$(\Delta + k^2)f = 0$$, a one-term deviation from the heat equation as the next PDE. Unsurprisingly, all it  took was to update the PDE regularization term during network training. It's clear that the Helmholtz solution has more wave-like periodic properties in our visualization, which matches the applications of the equation generally.
 
 Finally, we read several papers on neural operators to begin to understand how we can research and implement these in our project. Neural operators allow for discretization-invariant function approximation, a defining characteristic that could speed up partial differential equation system simulation more 1000x over slow, traditional numerical methods. Notably, they are also much more general than PINNs, which are restricted to the initial conditions they are trained on. 
 
