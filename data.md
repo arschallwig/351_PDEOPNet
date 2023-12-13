@@ -1,1 +1,5 @@
-TODO add data page
+---
+layout: default
+---
+
+## Data
