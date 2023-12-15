@@ -15,6 +15,9 @@ More details on all three models is presented below. By developing these three m
 
 ### PINN
 
+![PINN Diagram](/assets/imgs/MLP_diagram.png)
+
+
 ### Fourier PINN
 
 ### PINO
