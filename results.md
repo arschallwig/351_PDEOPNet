@@ -33,7 +33,7 @@ The train and test results from simulation 3 are below:
 
 Again, the validation loss in the top plot suggests that we have achieved convergence over our training time for simulation 3. However, we see an odd, periodic banding effect across the plate. We believe this is likely due to model underfitting, a limitation of the basic PINN architecture.
 
-TODO provide general thoughts on effectiveness of PINN
+From both our own experience of training the PINN and our reading of the literature, it seems that PINNs are "finicky" and difficult to optimize, which is a trade-off since they also require less data.
 
 ### Fourier PINN
 
