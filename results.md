@@ -19,6 +19,19 @@ The train and test results from simulation 1 are below:
 
 ![Validation Loss for PINN, Simulation 1](/assets/imgs/PINN_1_Validation.png) ![Final State for PINN, Simulation 1](/assets/imgs/PINN_1_Heat.png)
 
+The top plot demonstrates the validation loss over our 3000 epochs of training for simulation 1. As we can see it succesfully converges, suggesting a strong model fit was achieved. The bottom plot depicts the final state of the hot plate system. We have successfully captured the radiant heat eminating from the bottom, hot edge of the plate, suggesting we have accurately modeled our system. 
+
+The train and test results from simulation 2 are below:
+
+![Validation Loss for PINN, Simulation 2](/assets/imgs/PINN_2_Validation.png) ![Final State for PINN, Simulation 2](/assets/imgs/PINN_2_Heat.png)
+
+Similarly, the validation loss depicted in the top plot suggests convergence over our training time for simulation 2. Additionally, the bottom plot's depiction of the final state of the Helmholtz-modified hot plate system is consistent with our expected results, suggesting we have again accurately modeled our system. 
+
+The train and test results from simulation 3 are below:
+
+![Validation Loss for PINN, Simulation 3](/assets/imgs/PINN_3_Validation.png) ![Final State for PINN, Simulation 3](/assets/imgs/PINN_3_Heat.png)
+
+Again, the validation loss in the top plot suggests that we have achieved convergence over our training time for simulation 3. However, the 
 
 ### Fourier PINN
 
