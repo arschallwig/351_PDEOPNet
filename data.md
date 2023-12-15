@@ -10,8 +10,8 @@ Interestingly, we did not have to collect nor generate any data for the physics-
 
 To be more precise, we trained on a square with x and y both bounded by -1 below and 1 above, and sampled 2000 collocation points at random non-boundary points within said square. All non-boundary points were initialized with zero initial conditions, whereas the lower side was initialized with value 1 (hot), and the other three sides with value -1 (cold); note that these values, being the Dirichlet boundary conditions, were then held constant throughout the training process. Here is an example input and output to the PINN:
 
-[PINN_in.png]
-[PINN_out.png]
+![PINN Input](/assets/imgs/PINN_in.png)
+![PINN Output](/assets/imgs/PINN_out.png)
 
 ### Fourier PINN
 
