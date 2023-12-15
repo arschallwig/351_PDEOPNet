@@ -15,7 +15,7 @@ More details on all three models is presented below. By developing these three m
 
 ### PINN
 
-The Physics-Informed Nerual Network (PINN) was implemented in PyTorch, based on the [original paper](https://arxiv.org/abs/1711.10561) and corresponding [TensorFlow implementation](https://github.com/314arhaam/heat-pinn/blob/main/codes/heatman.ipynb). Beyond transitioning to PyTorch, our implementation introduced several novel features, including a new way to customize training scenarios, a modified model architecture, and new loss function. The training scenario customization is discussed in full on our [data](./data.md) page. 
+The Physics-Informed Nerual Network (PINN) was implemented in PyTorch, based on the [original paper](https://arxiv.org/abs/1711.10561) and corresponding [TensorFlow implementation](https://github.com/314arhaam/heat-pinn/blob/main/codes/heatman.ipynb) from Raissi et al. at Brown University and the University of Pennsylvania. Beyond transitioning to PyTorch, our implementation introduced several novel features, including a new way to customize training scenarios, a modified model architecture, and new loss function. The training scenario customization is discussed in full on our [data](./data.md) page. 
 
 The PINN architecture is a multi-layer perceptron (MLP), meaning that all activations are fully connected. Each fully-connected layer is followed by a tanh activation function, which maps each activation to the range $$\alpha \in (-1, 1)$$. The architecture contains seven fully-connected layers, each with 20 activations. This architecture is depicted visually below:
 
@@ -31,6 +31,8 @@ The boundary loss enforces the Dirichlelet boundary condition. In this case we r
 
 ### Fourier PINN
 
-The Fourier Physics-Informed Neural Network (FPINN) was similarly implemented in PyTorch, built off the core work from the PINN. The major new feature of this 
+The Fourier Physics-Informed Neural Network (FPINN) was similarly implemented in PyTorch, built off the core work from the PINN. The major new feature of this architecture was a novel Fourer layer, inspired by the work of [Li et al. at Caltech](https://arxiv.org/abs/2010.08895). This layer, which seeks to capture and learn from frequency information alongside spatial information, allows the FPINN to more effectively learn systems with high-frequency components. 
+
+As [established by Rahaman et al.](https://arxiv.org/abs/1806.08734), neural networks have a "spectral bias" towards smoothness and low frequencies.  
 
 ### PINO
