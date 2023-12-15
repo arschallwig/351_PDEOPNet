@@ -3,7 +3,7 @@ layout: default
 ---
 
 
-#### PDEOpNet is a Physics-Informed Neural Network (PINN) trained to solve key families of Partial Differential Equations (PDE) including the heat equation and the Navier-Stokes equation. <!--- TODO list any more PDEs here (or update this current listing if need-be --> 
+#### PDEOpNet is a Physics-Informed Neural Network (PINN) trained to solve key families of Partial Differential Equations (PDE) including the heat equation and Helmholtz equation. <!--- TODO list any more PDEs here (or update this current listing if need-be --> 
 
 Systems defined by PDEs can be seen all around us. Whether in the diffusion of heat or quantum mechanics, physicists, engineers, mathematicians, and more rely on PDEs to model and understand the world.
 
