@@ -8,6 +8,7 @@ Below, we will present and discuss our results for the three major model archite
 ### PINN
 
 We trained and tested our PINN model on three different scenarios. In all three cases, the learning rate was held constant at `5e-4`
+
 | Simulation | num_sample_points | border_coordinates | temp_range | epochs | k |
 |:-----------|:------------------|:-------------------|:-----------|:-------|:--|
 | 1          | 2000              | [-1,1]             | [-1,1]     | 3000   | 1 |
