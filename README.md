@@ -1,4 +1,5 @@
-# PDENets is a collection of Physics-Informed Neural Networks (PINN) trained to solve key families of Partial Differential Equations (PDE) including the heat equation and Helmholtz equation.
+# EECS 351: PDENets 
+PDENets is a collection of Physics-Informed Neural Networks (PINN) trained to solve key families of Partial Differential Equations (PDE) including the heat equation and Helmholtz equation.
 
 ## Credits
 Developed by:
