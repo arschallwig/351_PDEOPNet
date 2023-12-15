@@ -20,11 +20,12 @@ The Physics-Informed Nerual Network (PINN) was implemented in PyTorch, based on 
 The PINN architecture is a multi-layer perceptron (MLP), meaning that all activations are fully connected. Each fully-connected layer is followed by a tanh activation function, which maps each activation to the range $$\alpha \in (-1, 1)$$. The architecture contains seven fully-connected layers, each with 20 activations. This architecture is depicted visually below:
 
 ![PINN Diagram](/assets/imgs/MLP_diagram.png)
-Test caption.
 
-To train our model, we used two loss terms to enforce boundary conditions and differential loss. Our differential loss was altered from the original paper and implementation, seeking to solve the Helmholtz equation in addition to the heat equation. The two loss functions are below:
+To train our model, we used two loss terms to enforce boundary conditions and differential loss. Our differential loss was altered from the original paper and implementation, seeking to solve the Helmholtz equation in addition to the heat equation. The two loss functions are below, where $$u$$ is the scalar output of the network.
 
 $$\mathcal{L}_{boundary} = \text{mean}((x - \hat{x})^{2}) $$
+
+$$\mathcal{L}_{PDE} = \text{mean}((\frac{\partial^2 u}{\partial x} + \frac{\partial^2 u}{\partial y} + k^2 \cdot u)^2) $$
 
 
 ### Fourier PINN
