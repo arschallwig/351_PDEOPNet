@@ -14,7 +14,9 @@ We trained and tested our PINN model on three different scenarios. In all three 
 | 2          | 2000              | [-1,1]             | [-1,1]     | 2000   | 2 |
 | 3          | 8000              | [-5,5]             | [-3,3]     | 2000   | 2 |
 
-The 
+The train and test results from simulation 1 are below:
+
+![Validation Loss for PINN, Simulation 1](/assets/imgs/PINN_1_Validation.png) ![Final State for PINN, Simulation 1](/assets/imgs/PINN_1_Heat.png)
 
 
 ### Fourier PINN
