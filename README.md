@@ -6,6 +6,6 @@ Developed by:\
 Simon Cadavid (scadavid@umich.edu)\
 Vishal Chandra (chandrav@umich.edu)\
 Satvik Nagpal (satvikn@umich.edu)\
-Andrew Schallwig (arschall@umich.edu)\
+Andrew Schallwig (arschall@umich.edu)
 
 For EECS 351: Digital Signal Processing and Analysis, Fall 2023, Ann Arbor
