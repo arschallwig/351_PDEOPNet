@@ -3,6 +3,8 @@ PDENets is a collection of Physics-Informed Neural Networks (PINN) trained to so
 
 This directory contains three Python notebooks (.ipynb) for each of the three models explored in this project. All outputs are maintained from their last execution, allowing viewers to review diagrams and code output without the need to rerun. To rerun, simply download the notebook and execute the cells sequentially. For a simple model demo, we suggest running `torch_fpinn.ipynb`. 
 
+All data is generated in-notebook.
+
 ## Credits
 Developed by:\
 Simon Cadavid (scadavid@umich.edu)\
