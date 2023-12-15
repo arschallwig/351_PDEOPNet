@@ -27,7 +27,10 @@ $$\mathcal{L}_{boundary} = \text{mean}((x - \hat{x})^{2}) $$
 
 $$\mathcal{L}_{PDE} = \text{mean}((\frac{\partial^2 u}{\partial x} + \frac{\partial^2 u}{\partial y} + k^2 \cdot u)^2) $$
 
+The boundary loss enforces the Dirichlelet boundary condition. In this case we require that all boundary points must stay the same between the initial state and final state, and penalize any model that changes the temperature of boundary points. The PDE loss requires that the collocation points, or the sample of points throughout the plate, observe the gradients of our differential equation. In this case, we use the Helmholtz equation, penalizing any model whose collocation points do not follow this differential equation.
 
 ### Fourier PINN
+
+The Fourier Physics-Informed Neural Network (FPINN) was similarly implemented in PyTorch, built off the core work from the PINN. The major new feature of this 
 
 ### PINO
