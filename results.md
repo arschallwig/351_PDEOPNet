@@ -14,6 +14,8 @@ We trained and tested our PINN model on three different scenarios. In all three 
 | 2          | 2000              | [-1,1]             | [-1,1]     | 2000   | 2 |
 | 3          | 8000              | [-5,5]             | [-3,3]     | 2000   | 2 |
 
+The 
+
 
 ### Fourier PINN
 
