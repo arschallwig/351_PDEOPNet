@@ -12,4 +12,12 @@ This project was inspired by several recent (i.e. past 5 years) advances in usin
 
 These two techniques are combined in [Physics-Informed Neural Operators (PINOs)](https://arxiv.org/abs/2111.03794), which use both training data and physical constraints to learn the solution operator of a given family of parametric partial differential equations (PDEs).
 
+In the data section we referenced a recent (2023) paper by Li et al. proposing [Geometry-Informed Neural Operators (GINOs)](https://arxiv.org/abs/2309.00583), which leverage graph and Fourier architectures to learn the solution operator for irregular geometries.
+
 Additionally, this project references the seminal work from Kurt Hornik, Maxwell Stinchcombe, and Halbert White on the [Universal Approximation Theorem](https://www.sciencedirect.com/science/article/abs/pii/0893608089900208?via=ihub).
+
+We also modified/adapted code from the following repositories:
+
+[Navier-Stokes-Numerical-Solution-Using-FDM-FVM-LBM-Solver-Python-Scripting](https://github.com/rjwalia/Navier-Stokes-Numerical-Solution-Using-FDM-FVM-LBM-Solver-Python-Scripting/blob/main/2D%20Laplace%20Equation.py)
+
+[original FNO repository????]
