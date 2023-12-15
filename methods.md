@@ -33,6 +33,13 @@ The boundary loss enforces the Dirichlelet boundary condition. In this case we r
 
 The Fourier Physics-Informed Neural Network (FPINN) was similarly implemented in PyTorch, built off the core work from the PINN. The major new feature of this architecture was a novel Fourer layer, inspired by the work of [Li et al. at Caltech](https://arxiv.org/abs/2010.08895). This layer, which seeks to capture and learn from frequency information alongside spatial information, allows the FPINN to more effectively learn systems with high-frequency components. 
 
-As [established by Rahaman et al.](https://arxiv.org/abs/1806.08734), neural networks have a "spectral bias" towards smoothness and low frequencies.  
+As [established by Rahaman et al.](https://arxiv.org/abs/1806.08734), neural networks have a "spectral bias" towards smoothness and low frequencies. Because of this, it can often be difficult to generalize solutions that have strong high-frequency components. To rectify this, we consulted several potential solutions to pay closer attention to these frequency components. 
+
+Our first attempt was with an operation known as Fourier Upsampling. As initially discussed by [Tancik et al.](https://arxiv.org/abs/2006.10739), this Fourier upsampling would essentially allow the network to learn "high frequency functions in low dimensional domains", thus prompting our architecture to pay closer attention to, and learn from, high-frequency information. The two suggested upsampling approaches below are applied to the inputs, and passed through the rest of the network. In our case, $$\mathbf{v}$$ is simply the $$(x,y)$$ coordinate of each collocation point. 
+
+$$\textbf{Basic:} \gamma(\mathbf{v}) = \left[\cos(2\pi \mathbf{v} \mu), \sin(2\pi \mathbf{v} \mu)\right]^{T}$$
+$$\textbf{Gaussian:} \gamma(\mathbf{v}) = \left[\cos(2\pi \mathbf{B} \mathbf{v} \mu), \sin(2\pi \mathbf{B} \mathbf{v} \mu)\right]^{T}$$
+
+Our second attempt, and agreed-upon solution, was 
 
 ### PINO
