@@ -17,7 +17,7 @@ More details on all three models is presented below. By developing these three m
 
 The Physics-Informed Nerual Network (PINN) was implemented in PyTorch, based on the [original paper](https://arxiv.org/abs/1711.10561) and corresponding [TensorFlow implementation](https://github.com/314arhaam/heat-pinn/blob/main/codes/heatman.ipynb) from Raissi et al. at Brown University and the University of Pennsylvania. Beyond transitioning to PyTorch, our implementation introduced several novel features, including a new way to customize training scenarios, a modified model architecture, and new loss function. The training scenario customization is discussed in full on our [data](./data.md) page. 
 
-The PINN architecture is a multi-layer perceptron (MLP), meaning that all activations are fully connected. Each fully-connected layer is followed by a tanh activation function, which maps each activation to the range $$\alpha \in (-1, 1)$$. The architecture contains seven fully-connected layers, each with 20 activations. This architecture is depicted visually below:
+The PINN architecture is a multi-layer perceptron (MLP), meaning that all activations are fully connected. At a high level, this MLP is responsible for transforming an $$(x,y)$$ coordinate to a predicted temperature. Each fully-connected layer is followed by a tanh activation function, which maps each activation to the range $$\alpha \in (-1, 1)$$. The architecture contains seven fully-connected layers, each with 20 activations. This architecture is depicted visually below:
 
 ![PINN Diagram](/assets/imgs/MLP_diagram.png)
 
@@ -26,6 +26,8 @@ To train our model, we used two loss terms to enforce boundary conditions and di
 $$\mathcal{L}_{boundary} = \text{mean}((x - \hat{x})^{2}) $$
 
 $$\mathcal{L}_{PDE} = \text{mean}((\frac{\partial^2 u}{\partial x} + \frac{\partial^2 u}{\partial y} + k^2 \cdot u)^2) $$
+
+$$\mathcal{L}_{total} = \mathcal{L}_{boundary} + \mathcal{L}_{PDE}$$
 
 The boundary loss enforces the Dirichlelet boundary condition. In this case we require that all boundary points must stay the same between the initial state and final state, and penalize any model that changes the temperature of boundary points. The PDE loss requires that the collocation points, or the sample of points throughout the plate, observe the gradients of our differential equation. In this case, we use the Helmholtz equation, penalizing any model whose collocation points do not follow this differential equation.
 
@@ -73,5 +75,11 @@ class FourierLayer(nn.Module):
 
     return fmat.real + skip
 ```
+
+With this layer completed, we then built out the rest of our architecture. Far simpler than the PINN, this model only requires three Fourier hidden layers. All but the last layer are followed by a sigmoid activation function. Just as with the PINN, this model transforms an $$(x,y)$$ coordinate to a predicted temperature. The architecture for the FPINN is below:
+
+![Fourier PINN Architecture](/assets/imgs/FPINN_diagram.png)
+
+To train the model, we used the same $$\mathcal{L}_{boundary}$$, $$\mathcal{L}_{PDE}$$, and $$\mathcal{L}_{total}$$ as above. This makes sense as we are not changing our training objective, we are simply prompting our FPINN to pay closer attention to different features than the original PINN. 
 
 ### PINO
