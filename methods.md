@@ -47,4 +47,31 @@ Our second and final approach was to use a Fourier layer with bypass. This layer
 
 ![Fourier Layer Diagram](/assets/imgs/Fourier_layer_diagram.png)
 
+As can be seen in the diagram, each Fourier layer works on two representations simultaneously. The input is transformed with a Fast-Fourier Transform (FFT) into the frequency domain, scaled and shifted by a weight and bias matrix, then transformed back to the spatial domain with the Inverse Fast-Fourier Transform (IFFT). The spatial input is also scaled and shifted by a separate weight and bias matrix. This allows the network to learn in both bases, capturing and learning important information from both representations. The custom PyTorch Fourier layer that we developed is below: 
+
+```python
+class FourierLayer(nn.Module):
+  def __init__(self, size_in, size_out):
+    super().__init__()
+    self.size_in, self.size_out = size_in, size_out
+
+    w = torch.zeros([size_out, size_in], dtype=torch.float32, device=torch.device('cuda'))
+    self.w = nn.Parameter(w)
+    wb = torch.zeros([size_out], dtype=torch.float32, device=torch.device('cuda'))
+    self.wb = nn.Parameter(wb)
+
+    r = torch.zeros([size_out, size_in], dtype=torch.cfloat, device=torch.device('cuda'))
+    self.r = nn.Parameter(r)
+    rb = torch.zeros([size_out], dtype=torch.cfloat, device=torch.device('cuda'))
+    self.rb = nn.Parameter(rb)
+
+  def forward(self, x):
+    fcoeff = torch.fft.fft(x)
+    ftransform = torch.matmul(fcoeff, self.r.T) + self.rb
+    fmat = torch.fft.ifft(ftransform)
+    skip = torch.matmul(x, self.w.T) + self.wb
+
+    return fmat.real + skip
+```
+
 ### PINO
