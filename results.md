@@ -31,7 +31,9 @@ The train and test results from simulation 3 are below:
 
 ![Validation Loss for PINN, Simulation 3](/assets/imgs/PINN_3_Validation.png) ![Final State for PINN, Simulation 3](/assets/imgs/PINN_3_Heat.png)
 
-Again, the validation loss in the top plot suggests that we have achieved convergence over our training time for simulation 3. However, the 
+Again, the validation loss in the top plot suggests that we have achieved convergence over our training time for simulation 3. However, we see an odd, periodic banding effect across the plate. We believe this is likely due to model underfitting, a limitation of the basic PINN architecture.
+
+TODO provide general thoughts on effectiveness of PINN
 
 ### Fourier PINN
 
@@ -43,6 +45,28 @@ For direct comparison with our PINN, we trained and tested our FPINN model on th
 | 2          | 2000              | [-1,1]             | [-1,1]     | 2000   | 2 |
 | 3          | 8000              | [-5,5]             | [-3,3]     | 3000   | 2 |
 
+The train and test results from simulation 1 are below:
+
+![Validation Loss for FPINN, Simulation 1](/assets/imgs/FPINN_1_Validation.png) ![Final State for FPINN, Simulation 1](/assets/imgs/FPINN_1_Heat.png)
+
+Just as with the PINN implementation for simulation 1, we see a similar level and rate of convergence in the top plot, which shows the validation loss over the 3000 epochs of training for our FPINN. The bottom plot again depicts the final state of the hot plate system, which captures the expected radiant heat dynamics, and is consistent with the PINN model output. 
+
+The train and test results from simulation 2 are below:
+
+TODO comment on how these look
+
+![Validation Loss for FPINN, Simulation 2](/assets/imgs/FPINN_2_Validation.png) ![Final State for FPINN, Simulation 2](/assets/imgs/FPINN_2_Heat.png)
+
+The train and test results from simulation 3 are below:
+
+![Validation Loss for FPINN, Simulation 3](/assets/imgs/FPINN_3_Validation.png) ![Final State for FPINN, Simulation 3](/assets/imgs/FPINN_3_Heat.png)
+
+TODO comment on how these look
+
+TODO provide general thoughts on effectiveness of FPINN
+
 ### PINO
 
 ### Conclusion and Future Improvements
+
+TODO reiterate general thoughts on effectiveness of each model
