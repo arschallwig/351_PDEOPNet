@@ -4,7 +4,7 @@ layout: default
 
 ## Data
 
-### (Regular) PINN
+### PINN
 
 Interestingly, we did not have to collect nor generate any data for the physics-informed neural network. Instead, we just enforced constant Dirichlet boundary conditions along the square's edges (representing a metal plate), and then randomly sampled various collocation points along the plate's surface where we enforced the physics-informed loss term of our objective function. Note that all the non-boundary points had zero initial conditions. An advantage of PINNs, as we've discussed, is that they require less training data due to the physics-informed loss guiding the solution approximation. 
 
