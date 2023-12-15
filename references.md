@@ -20,4 +20,4 @@ We also modified/adapted code from the following repositories:
 
 [Navier-Stokes-Numerical-Solution-Using-FDM-FVM-LBM-Solver-Python-Scripting](https://github.com/rjwalia/Navier-Stokes-Numerical-Solution-Using-FDM-FVM-LBM-Solver-Python-Scripting/blob/main/2D%20Laplace%20Equation.py)
 
-[original FNO repository????]
+[Original FNO Repository](https://github.com/khassibi/fourier-neural-operator)
