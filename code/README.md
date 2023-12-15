@@ -5,6 +5,14 @@ This directory contains three Python notebooks (.ipynb) for each of the three mo
 
 All data is generated in-notebook.
 
+`torch_pinn_old_arch.ipynb` is the PINN model
+
+`torch_fpinn.ipynb` is the Fourier PINN model
+
+`FNO.ipynb` is the Fourier Neural Operator model
+
+`Heat_Data_Exploration.ipynb` is the a sandbox where we initially explored the data created for the FNO
+
 ## Credits
 Developed by:\
 Simon Cadavid (scadavid@umich.edu)\
