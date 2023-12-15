@@ -67,6 +67,24 @@ While suffering from the same initial conditions limitation as the PINN, the FPI
 
 ### FNO
 
-### Conclusion
+For our FNO implementation, we trained and tested a single scenario over 3000 epochs. 
+
+The train and test results from this simulation are below:
+
+![Validation Loss for FNO Simulation](/assets/imgs/FNO_Validation.png) ![Initial State for FNO Simulation](/assets/imgs/FNO_Heat_Initial.png) ![Final State for FNO Simulation](/assets/imgs/FNO_Heat_Final.png)
+
+Training is yet again stable, and converges after approximately the first 1000 epochs. Importantly, the input for this simulation is effectively arbitrary, meaning the model has no knowledge of initial conditions. This is demonstrated in the second plot above, which shows the variable heating on each edge of the hot plate. Unlike the PINN and FPINN, this model effectively captures the total system dynamics of the heat equation, not just the system dynamics of a specific scenario and initial condition to the heat equation. We can see that in the final plot above, we have heat distributed evenly across the plate, with a gradient proportional to each edge's initial temperature. 
+
+Due to the more general nature of the model, it also exhibits a property known as mesh invariance. If every pixel covers some 2d region of the plane, the representative field of each pixel changes as we scale our plot up or down. For example in a $$(64 \times 64)$$ plane, each pixel covers "more" than a more granular $$(128 \times 128)$$ plane. Because of the FNO's ability to handle arbitrary initial conditions, it is robust to this mesh invariance as well. No matter the granularity of the pixels that are sampling and representing the underlying continuous system, the model will disperse correctly and apply the dynamics of learned differential equation. 
+
+This model succeeds at combining the strengths of both previous models, while additionally being robust to changing initial conditions. This is especially important for real-world applications, as initial conditions will change wildly in most experimental and applied settings.
+
+### Conclusions
 
 While all models have their strengths and weaknesses, the three models differ largely in their complexity, ability to capture high-frequency dynamics, and robustness to initial system conditions. The PINN is a simple model, but is not particularly strong at capturing high-frequency system dynamics, and is fully dependent on system initial conditions. The FPINN is similarly simple and dependent on initial conditions, but can capture high-frequency dynamics very well. Finally the FNO, though complex, is the most generalizable, allowing it to capture high-frequency dynamics and be robust to system initial conditions. Thus, if enough compute resources are available, we suggest that the Fourier Neural Operator model is the most for learning the dynamics of partial differential equations. Although it can be difficult to train, its generalizability with continued focus on frequency-domain learning, allows it to most accurately, and most consistently, model differential equations. 
+
+### DSP Topics
+
+To achieve the results above, we had to rely heavily on several key topics from class. We employed principles of the Fourier transform and multiple basis representation for both the FPINN and FNO. We used these in a particularly applied context as we used `torch.fft.fft` and `torch.fft.ifft` to perform Fast Fourier Transforms as discussed in class. This was necessary to allow our model to quickly train and test in both spatial and frequency domains. Additionally, we also used and built upon the core principles of machine learning that we learned in class. The foundations of MLPs, neural networks, activation functions, and more were a central part of this work. 
+
+We used several tools from beyond class. For example, we learned and used `PyTorch` to create our machine learning models. We also learned about interesting system properties that, while much like those for signals, are more particular to machine learning for partial differential equations such as mesh invariance, initial condition invariance, and the Universal Approximation Theorem. 
