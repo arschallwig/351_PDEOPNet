@@ -35,6 +35,14 @@ Again, the validation loss in the top plot suggests that we have achieved conver
 
 ### Fourier PINN
 
+For direct comparison with our PINN, we trained and tested our FPINN model on the same three different scenarios. In all three cases, the learning rate was held constant at `5e-4`. Note that simulation 3 for the FPINN was trained over 3000 epochs versus the 2000 epochs trained for simulation 3 for the PINN. 
+
+| Simulation | num_sample_points | border_coordinates | temp_range | epochs | k |
+|:-----------|:------------------|:-------------------|:-----------|:-------|:--|
+| 1          | 2000              | [-1,1]             | [-1,1]     | 3000   | 1 |
+| 2          | 2000              | [-1,1]             | [-1,1]     | 2000   | 2 |
+| 3          | 8000              | [-5,5]             | [-3,3]     | 3000   | 2 |
+
 ### PINO
 
 ### Conclusion and Future Improvements
